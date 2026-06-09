@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Tech IT Solutions Pvt Ltd | Enterprise Technology Services</title>
+    <style>
+        :root {
+            --bg-dark: #070b14;
+            --bg-card: #101726;
+            --primary-cyan: #00f2fe;
+            --primary-blue: #4facfe;
+            --accent-glow: rgba(0, 242, 254, 0.15);
+            --text-main: #ffffff;
+            --text-muted: #8fa0bc;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Navigation Header */
+        header {
+            background-color: rgba(7, 11, 20, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .brand-identity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-cyan);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-cyan));
+            color: #070b14 !important;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.35);
+        }
+
+        /* Hero / Showcase Section with High-Tech Background Image */
+        .hero {
+            position: relative;
+            padding: 230px 20px 150px 20px;
+            /* IT Server Room background image with dark masking overlay */
+            background: linear-gradient(rgba(7, 11, 20, 0.85), rgba(7, 11, 20, 0.95)), 
+                        url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: #cdd7e8; /* Brightened slightly for readability over the background image */
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Section Global Typography */
+        .services-section, .partners-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Grid Configuration */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 40px 35px;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 242, 254, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            color: var(--primary-cyan);
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* Strategic Technology Partners Grid */
+        .partners-section {
+            border-top: 1px solid var(--border-color);
+            background: linear-gradient(to bottom, transparent, rgba(16, 23, 38, 0.3));
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .partner-logo-box {
+            background-color: rgba(16, 23, 38, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .partner-logo-box:hover {
+            background-color: var(--bg-card);
+            color: var(--primary-cyan);
+            border-color: rgba(0, 242, 254, 0.2);
+        }
+
+        /* Footer & Location Modules */
+        footer {
+            background-color: #04070d;
+            border-top: 1px solid var(--border-color);
+            padding: 80px 20px 40px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-info {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .footer-info p {
+            color: var(--text-muted);
+            margin-top: 20px;
+            font-size: 1rem;
+            max-width: 450px;
+        }
+
+        .footer-locations {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .footer-locations h4, .footer-contacts h4 {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            border-left: 3px solid var(--primary-cyan);
+            padding-left: 12px;
+        }
+
+        .location-node {
+            margin-bottom: 20px;
+        }
+
+        .location-node h5 {
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .location-node p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-contacts {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .contact-item span:first-child {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .contact-item a, .contact-item span:last-child {
+            color: var(--primary-cyan);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.3rem; }
+            .footer-container { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Section -->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="brand-identity">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 25L50 50L20 75" stroke="url(#blueGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M50 25L80 50L50 75" stroke="url(#cyanGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="blueGrad" x1="20" y1="25" x2="50" y2="70" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#4facfe" />
+                            <stop offset="100%" stop-color="#00f2fe" />
+                        </linearGradient>
+                        <linearGradient id="cyanGrad" x1="50" y1="25" x2="80" y2="70" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#00f2fe" />
+                            <stop offset="100%" stop-color="#4facfe" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <div class="logo-text">
+                    Future Tech
+                    <span>IT Solutions</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Practices</a></li>
+                <li><a href="#partners">Alliances</a></li>
+                <li><a href="#contact">Contact</a></li>
+            
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero / Main Introduction Section with Embedded Server Room Background -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Architecting Resilient Infrastructure for <span>Enterprise Operations</span></h1>
+            <p>Future Tech IT Solutions Private Limited delivers systems engineering, continuous operational optimizations, and modern data-tier architectures designed for long-term scalability.</p>
+            <a href="mailto:info@futuretech.co.in" style="text-decoration: none;" class="cta-btn">Initiate Consultation</a>
+        </div>
+    </section>
+
+    <!-- Core Business Offerings Grid -->
+    <section class="services-section" id="services">
+        <div class="section-title">
+            <h2>Core Engineering Practices</h2>
+            <p>Managed technical capability across critical corporate deployment targets.</p>
+        </div>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>System Integration</h3>
+                <p>Deploying end-to-end orchestration pipelines to consolidate siloed resources, stabilize background processes, and achieve seamless system synchronization.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Cyber Security Matrix</h3>
+                <p>Advanced lifecycle defense strategies, continuous policy profiling, data integrity assertions, and zero-trust perimeter configuration controls.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Networking Solutions</h3>
+                <p>High-capacity enterprise backbone engineering, SD-WAN architecture optimization, and zero-downtime routing architectures for multi-branch environments.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🖧</div>
+                <h3>Cloud Migration</h3>
+                <p>Targeted migration patterns, secure high-availability cloud configurations, and automated storage layer balancing protocols.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🖥️</div>
+                <h3>End User Computing</h3>
+                <p>Device provisioning frameworks, comprehensive software delivery configurations, and robust endpoint security postures across distributed layouts.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👔</div>
+                <h3>Managed IT Operations</h3>
+                <p>Continuous network health tracking, proactive bottleneck mitigations, and systemic infrastructure tuning to maximize operational availability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Partner Matrix Section -->
+    <section class="partners-section" id="partners">
+        <div class="section-title">
+            <h2>Strategic Technology Alliances</h2>
+            <p>We deploy, support, and align our delivery workflows with standard infrastructure ecosystems.</p>
+        </div>
+        <div class="partner-grid">
+            <div class="partner-logo-box">MICROSOFT 365</div>
+            <div class="partner-logo-box">CISCO NETWORKS</div>
+            <div class="partner-logo-box">FORTINET SECURITY</div>
+            <div class="partner-logo-box">DELL ENTERPRISE</div>
+        </div>
+    </section>
+
+    <!-- Corporate Footer & Regional Locations -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-info">
+                <div class="logo-text" style="font-size:1.5rem; margin-bottom:10px;">Future Tech IT Solutions Pvt Ltd</div>
+                <p>An enterprise technical integrations and managed architecture firm focused on maximizing processing efficiency, securing core digital assets, and designing modern infrastructure.</p>
+            </div>
+            
+            <div class="footer-locations">
+                <h4>Our Offices</h4>
+                <div class="location-node">
+                    <h5>Corporate Headquarters (Noida)</h5>
+                    <p>A-18, Future Tech IT Solutions,<br>Noida Sector 59, Uttar Pradesh, India</p>
+                </div>
+                <div class="location-node">
+                    <h5>Delhi Branch</h5>
+                    <p>Regional Delivery Hub,<br>New Delhi, India</p>
+                </div>
+            </div>
+
+            <div class="footer-contacts">
+                <h4>Communications</h4>
+                <div class="contact-item">
+                    <span>Direct Admin Line</span>
+                    <a href="tel:+918285834679">+91 8285834679</a>
+                </div>
+                <div class="contact-item">
+                    <span>Corporate Email Routing</span>
+                    <a href="mailto:info@futuretech.co.in">info@futuretech.co.in</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div>&copy; 2026 Future Tech IT Solutions Pvt Ltd. All Rights Reserved.</div>
+            <div>Engineering operations explicitly aligned with standard enterprise policies and compliance frameworks.</div>
+        </div>
+    </footer>
+
+</body>
+</html>
